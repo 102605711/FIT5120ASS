@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WasteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Waste">
+    <Key>
+      <PropertyRef Name="WasteID" />
+    </Key>
+    <Property Name="WasteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WasteType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="WasteCosts" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="WasteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Wastes" EntityType="Self.Waste" />
+  </EntityContainer>
+</Schema>

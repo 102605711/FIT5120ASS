@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<link href="~/Content/c3.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/c3.min.js"></script>
+<script src="~/Scripts/d3.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link href="~/Content/HomeCss.css" rel="stylesheet" />
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive"> 
+        </div>
+    </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Want to know the cost of disposing of market waste in Melbourne for a year?</div>
+        <div class="masthead-heading text-uppercase">Let Chart tells u..</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+    </div>
+</header>
+
+<p class="text-muted">Want to know the cost of disposing of market waste in Melbourne for a year? </p>
+<div id="pieChart"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var MSiteName = [];
+        var MasterJson;
+        $.ajax({
+            type: "GET",
+            url: "/Chart/PieChart",
+            data: {},
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                successFunc(response);
+            },
+        });
+
+
+        function successFunc(jsondata) {
+            var data = {};
+            var wasteTypes = [];
+            jsondata.forEach(function (e) {
+                wasteTypes.push(e.WasteType);
+                data[e.WasteType] = e.WasteCosts;
+            })
+
+            var chart = c3.generate({
+                bindto: '#pieChart',
+                data: {
+                    json: [data],
+                    keys: {
+                        value: wasteTypes,
+                    },
+                    type: 'donut',
+                },
+                color: {
+                    pattern: ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+                },
+                pie: {
+                    label: {
+                        format: function (value, ratio, id) {
+                            return d3.format('$')(value)
+                        }
+
+                    }
+                }
+
+            });
+
+        }
+    });
+
+</script>
+
