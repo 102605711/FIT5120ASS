@@ -14,3 +14,4 @@ Will improve data visualization page in further.
 Improve the UI
 Optimized the links
 Let Web-application more interactive
+Will deploy on the cloud in next developement period
