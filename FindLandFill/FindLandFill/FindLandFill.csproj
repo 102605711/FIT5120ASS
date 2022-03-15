@@ -158,13 +158,13 @@
     <Content Include="App_Data\Waste_log.ldf">
       <DependentUpon>Waste.mdf</DependentUpon>
     </Content>
-    <Content Include="assets\362af5376210cf024ec31bd45ee6450.jpg" />
     <Content Include="assets\about1.png" />
     <Content Include="assets\about2.png" />
     <Content Include="assets\about3.png" />
+    <Content Include="assets\about4.jpg" />
+    <Content Include="assets\bin3.jpg" />
     <Content Include="assets\Capture.PNG" />
     <Content Include="assets\favicon.ico" />
-    <Content Include="assets\GrennBin.jpg" />
     <Content Include="assets\home1.1.png" />
     <Content Include="assets\home1.png" />
     <Content Include="assets\home2.1.jpg" />
@@ -173,14 +173,20 @@
     <Content Include="assets\home3.jpg" />
     <Content Include="assets\about4.png" />
     <Content Include="assets\img\close-icon.svg" />
-    <Content Include="assets\img\header-bg.jpg" />
     <Content Include="assets\img\logos\facebook.svg" />
     <Content Include="assets\img\logos\google.svg" />
     <Content Include="assets\img\logos\ibm.svg" />
     <Content Include="assets\img\logos\microsoft.svg" />
     <Content Include="assets\img\map-image.png" />
     <Content Include="assets\img\navbar-logo.svg" />
+    <Content Include="assets\inOrganicBin.png" />
+    <Content Include="assets\inOrganicBin2.png" />
+    <Content Include="assets\inRedbin.png" />
+    <Content Include="assets\inYellowbin.png" />
     <Content Include="assets\RedBin.jpg" />
+    <Content Include="assets\service1.jpg" />
+    <Content Include="assets\service2.jpg" />
+    <Content Include="assets\service3.jpg" />
     <Content Include="assets\YellowBin.jpg" />
     <Content Include="Content\About.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -190,6 +196,7 @@
     <Content Include="Content\c3.css" />
     <Content Include="Content\c3.min.css" />
     <Content Include="Content\HomeCss.css" />
+    <Content Include="Content\mapboxGeocoder.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -230,6 +237,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mapboxGeocoder.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -246,6 +254,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

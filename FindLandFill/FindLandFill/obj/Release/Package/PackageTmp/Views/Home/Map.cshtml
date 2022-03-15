@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +12,9 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css"
           rel="stylesheet" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
+    <link href="~/Content/mapboxGeocoder.css" rel="stylesheet" />
     <script src="~/Scripts/geojson.js"></script>
-    <link href="~/Content/About.css" rel="stylesheet" />
-
+    <script src="~/Scripts/mapboxGeocoder.js"></script>
     <style>
         html,
         body {
@@ -47,12 +46,12 @@
 </head>
 
 <body>
-
     <div id="map"></div>
     <script>
         const App = {
             init: function () {
                 this.initMap();
+                this.addControl();
             },
             initMap: function () {
                 mapboxgl.accessToken =
@@ -95,19 +94,25 @@
                         this.popup.remove();
                     }
                     const html = `
-                          <div style="font-size:14px; padding: 0 5px">
-                            <div>${e.features[0].properties.name}</div>
-                            <div>${e.features[0].properties.day}</div>
-                          </div>
-                        `;
+                  <div style="font-size:14px; padding: 0 5px">
+                    <div>${e.features[0].properties.name}</div>
+                    <div>${e.features[0].properties.day}</div>
+                  </div>
+                `;
                     this.popup = new mapboxgl.Popup({ closeButton: false });
                     this.popup.setLngLat(e.lngLat).setHTML(html).addTo(this.map);
                 });
             },
+            addControl() {
+                this.map.addControl(
+                    new MapboxGeocoder({
+                        accessToken: mapboxgl.accessToken,
+                        mapboxgl: mapboxgl,
+                    })
+                );
+            },
         };
         App.init();
     </script>
-
 </body>
-
 </html>
