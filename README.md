@@ -24,3 +24,8 @@ Let Web-application more interactive
 
 
 Will deploy on the cloud in next developement period
+
+
+------------------------------------
+Final version
+All requirenments satisfied
